@@ -1,0 +1,7 @@
+
+h2 Quizzes
+ul
+  - @qs.each do |q|
+    li = link_to q.title, quiz_path(q)
+
+= link_to 'Home', root_path

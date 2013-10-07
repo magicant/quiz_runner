@@ -1,0 +1,17 @@
+h2 Play a Quiz
+
+ul
+  - @ps.each do |p|
+    li = link_to p.memo, play_path(p)
+
+hr
+
+= form_tag plays_path
+  div
+    - opts = options_for_select(@qs.map{ |q| [q.title, q.id] })
+    | Select Quiz:
+    = select_tag 'quiz_id', opts, required: true
+  div
+    | Memo:
+    = text_field_tag 'memo', '', required: true
+  button Create

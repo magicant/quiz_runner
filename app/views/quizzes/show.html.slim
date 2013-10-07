@@ -1,0 +1,10 @@
+
+h2 = @q.title
+
+dl
+  - @q.data_json.each do |pair|
+    dt = pair['q']
+    dd = pair['a'].join(' / ')
+
+= link_to 'back to index', quizzes_path
+
