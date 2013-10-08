@@ -29,7 +29,7 @@ class Play < ActiveRecord::Base
 
   # :: Int -> Bool
   def last?(step)
-    step >= decision_array.size
+    step >= data_obj.size
   end
 
   # :: Int -> (Int | Nil)

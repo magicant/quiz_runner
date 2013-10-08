@@ -4,6 +4,20 @@
 h2 Question
 p = pair['q']
 
+h2 Votes
+
+table(border=1)
+  tr
+    th #
+    th Answer
+    th Votes
+  - group_by = @p.players.group_by{ |pl| pl.decision_array[@step - 1] }
+  - pair['a'].each_with_index do |a, ix|
+    tr
+      th = ix + 1
+      td = a
+      td(data-type="number") = group_by[ix].try :size
+
 h2 Answer
 - if ans = @p.decision_of(@step)
   ' Answer is
@@ -25,8 +39,7 @@ h2 Links
   - else
     = button_to 'Next Question', play_play_path(@p, next: 1)
 
-
 hr
 
-= link_to 'Back to Play', play_play_path(@p)
+= link_to 'Back to Detail', play_path(@p)
 

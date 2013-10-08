@@ -1,11 +1,33 @@
 
 h2 = @p.memo
 
+h2 Correct answers
 dl
   - @p.data_obj.each_with_index do |h, ix|
     dt = h['q']
     dd = h['a'][@p.decision_array[ix]]
 
+h2 Votes
+
+table(border=1)
+  tr
+    th name
+    - @p.data_obj.each_with_index do |pair, ix|
+      th No. #{ix + 1}
+    th total
+  - @p.players.each_with_index do |pl, ix|
+    tr
+      th = pl.name
+      - sum = 0
+      - @p.data_obj.each_with_index do |pair, ix|
+        td(data-type="mark")
+          - if pl.decision_array[ix] == @p.decision_array[ix]
+            - sum += 1
+            | o
+          - else
+            | x
+      td(data-type="number") = sum
+      
 hr
 = link_to 'Back to Quiz', plays_path
 

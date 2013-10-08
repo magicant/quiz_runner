@@ -6,7 +6,7 @@ p = @p.memo
 h3 Players
 ul
   - @p.players.each do |pl|
-    li = pl.name
+    li = link_to pl.name, player_path(pl), target: '_blank'
 
 = form_tag players_play_path(@p)
   button Add Player
@@ -15,7 +15,7 @@ ul
 h3 Play
 
 - if @p.started?
-  = link_to 'Go to Quiz', play_play_path(@p)
+  = link_to 'Go to Quiz', play_play_path(@p, @p.step)
 - else
   = button_to 'Start this Quiz', play_play_path(@p)
 

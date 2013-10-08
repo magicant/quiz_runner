@@ -3,13 +3,13 @@ begin
   title = 'BEST ONES'
   qs = [
     {
-      q: 'Which is the oldest language?',
+      q: 'Which is the oldest language ?',
       a: %w(Ada Pascal Lisp BASIC FORTRAN C)
     }, {
-      q: 'Which is largest country?',
+      q: 'Which is the largest country ?',
       a: %w(Brazil Australia India China Russia Canada)
     }, {
-      q: 'Which is hardest gem?',
+      q: 'Which is the hardest gem ?',
       a: %w(Ruby Pearl Emerald Sapphire Diamond Amber)
     }
   ]

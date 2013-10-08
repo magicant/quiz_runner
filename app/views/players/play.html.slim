@@ -1,0 +1,25 @@
+
+p You are #{@pl.name}
+
+h2 Quiz
+- if @step
+  - pair = @pl.play.data_obj[@step - 1]
+  p = pair['q']
+
+  - choise = @pl.decision_array[@step - 1]
+  .player-selection
+    - pair['a'].each_with_index do |a, ix|
+      - opts = { class: choise == ix ? 'selected' : nil }
+      = button_to a, play_player_path(@pl, @step, decision: ix), opts
+
+  - if d = @pl.play.decision_of(@step)
+    p
+     ' Correct answer is
+     b = pair['a'][d]
+
+- else
+  p Quiz is not started
+
+hr
+= button_to 'Next Question', play_player_path(@pl, @step + 1)
+

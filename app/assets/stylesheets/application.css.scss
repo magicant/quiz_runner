@@ -14,4 +14,27 @@
 
 .button_to {
   display: inline-block;
+  [type=submit] {
+    margin: 2px;
+    background-color: #eee;
+    &.selected {
+      background-color: #fee;
+    }
+  }
 }
+
+table[border="1"] {
+  margin: 0 20px;
+  th, td {
+    border-color: #ccc;
+    padding: 2px 8px;
+  }
+}
+
+[data-type=number] {
+  text-align: right;
+}
+[data-type=mark] {
+  text-align: center;
+}
+
