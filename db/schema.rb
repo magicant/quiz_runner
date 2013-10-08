@@ -14,8 +14,9 @@
 ActiveRecord::Schema.define(version: 20131007065150) do
 
   create_table "players", force: true do |t|
-    t.integer "play_id_id",                null: false
-    t.string  "decision",   default: "[]", null: false
+    t.integer "play_id",                 null: false
+    t.string  "name",                    null: false
+    t.string  "decision", default: "[]", null: false
   end
 
   create_table "plays", force: true do |t|

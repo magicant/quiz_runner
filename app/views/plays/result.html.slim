@@ -1,0 +1,11 @@
+
+h2 = @p.memo
+
+dl
+  - @p.data_obj.each_with_index do |h, ix|
+    dt = h['q']
+    dd = h['a'][@p.decision_array[ix]]
+
+hr
+= link_to 'Back to Quiz', plays_path
+

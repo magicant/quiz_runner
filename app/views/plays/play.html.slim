@@ -1,0 +1,32 @@
+
+- pair = @p.data_obj[@step - 1]
+
+h2 Question
+p = pair['q']
+
+h2 Answer
+- if ans = @p.decision_of(@step)
+  ' Answer is
+  b = pair['a'][ans]
+ul
+  - pair['a'].each_with_index do |a, ix|
+    = button_to a, play_play_path(@p, decision: ix)
+
+h2 Links
+
+- unless @p.first? @step
+  => link_to 'Prev', play_play_path(@p, @step - 1)
+
+- if @p.decision_of(@step)
+  - if @p.last? @step
+    = link_to 'Result', result_play_path(@p)
+  - elsif @p.step > @step
+    = link_to 'Next', play_play_path(@p, @step + 1)
+  - else
+    = button_to 'Next Question', play_play_path(@p, next: 1)
+
+
+hr
+
+= link_to 'Back to Play', play_play_path(@p)
+

@@ -1,0 +1,28 @@
+
+h2 Play a Quiz
+
+p = @p.memo
+
+h3 Players
+ul
+  - @p.players.each do |pl|
+    li = pl.name
+
+= form_tag players_play_path(@p)
+  button Add Player
+  = text_field_tag :name, '', required: true, placeholder: 'Player A'
+
+h3 Play
+
+- if @p.started?
+  = link_to 'Go to Quiz', play_play_path(@p)
+- else
+  = button_to 'Start this Quiz', play_play_path(@p)
+
+- if @p.finished?
+  =< link_to 'Result', result_play_path(@p)
+
+hr
+
+= link_to 'Back to Play', plays_path
+
