@@ -7,8 +7,11 @@
     - pair = @pl.play.data_obj[@step - 1]
     div(data-role="content") = pair['q']
     div(data-role="content")
-      'You choose
-      strong = pair['a'][@pl.decision_array[@step - 1]]
+      - if ix = @pl.decision_array[@step - 1]
+        'You choose
+        strong = pair['a'][ix]
+      - else
+        'Not chosen
 
     @content
       - pair['a'].each_with_index do |a, ix|
