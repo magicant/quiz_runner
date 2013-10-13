@@ -17,8 +17,8 @@ QuizRunner::Application.routes.draw do
 
     resources :players, only: %w(show) do
       member do
-        get  "/play(/:step)", action: 'play', as: :play, step: num_ptn
-        post "/play(/:step)", action: 'do_play', step: num_ptn
+        get  "/play/:step", action: 'play', as: :play, step: num_ptn
+        post "/play/:step", action: 'do_play', step: num_ptn
       end
     end
   end

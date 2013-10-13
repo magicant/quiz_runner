@@ -1,18 +1,13 @@
 class PlayersController < ApplicationController
 
   before_action :set_player
+  before_filter :normalize_step, only: [:play, :do_play]
 
   def show
     render
   end
 
   def play
-    if @pl.play.started?
-      @step ||= @pl.decision_array.size
-      @step = [@step, 1].max
-      @step = [@step, @pl.play.step].min
-    end
-
     render
   end
 
@@ -30,5 +25,18 @@ class PlayersController < ApplicationController
     @pl = Player.with_play.find(params[:id])
     @step = params[:step].try(&:to_i)
   end
+
+  def normalize_step
+    unless @pl.play.started?
+      redirect_to player_path(@pl)
+      return false
+    end
+    @step = params[:step].to_i
+    if @step > @pl.play.step
+      redirect_to play_player_path(@pl, @pl.play.step)
+      return false
+    end
+  end
+
 end
 
