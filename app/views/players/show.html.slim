@@ -2,5 +2,6 @@
 b Name:
 =< @pl.name
 br
-= button_to 'Start Quiz', play_player_path(@pl, 1)
+= form_tag play_player_path(@pl, 1), 'data-ajax' => 'false' do
+  button Start Quiz
 
