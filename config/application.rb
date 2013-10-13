@@ -8,6 +8,11 @@ Bundler.require(:default, Rails.env)
 
 module QuizRunner
   class Application < Rails::Application
+    Slim::Engine.set_default_options shortcut: {
+      '@' => { attr: "data-role"},
+      '#' => { attr: "id"},
+      '.' => { attr: "class"},
+    }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

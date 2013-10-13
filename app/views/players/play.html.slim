@@ -1,26 +1,25 @@
+@page(data-fullscreen='true')
+  @header
+    h3 = @pl.name
+    a.ui-btn-right(data-icon='arrow-r'data-iconpos='right' data-theme='b' href=play_player_path(@pl, @step + 1)) Next
 
-p You are #{@pl.name}
+  - if @step
+    - pair = @pl.play.data_obj[@step - 1]
+    div(data-role="content") = pair['q']
+    div(data-role="content")
+      'You choose
+      strong = pair['a'][@pl.decision_array[@step - 1]]
 
-h2 Quiz
-- if @step
-  - pair = @pl.play.data_obj[@step - 1]
-  p = pair['q']
+    @content
+      - pair['a'].each_with_index do |a, ix|
+        = form_tag play_player_path(@pl, @step) do
+          button@button = a
+          = hidden_field_tag 'decision', ix
+    - if d = @pl.play.decision_of(@step)
+      p
+       ' Correct answer is
+       b = pair['a'][d]
 
-  - choise = @pl.decision_array[@step - 1]
-  .player-selection
-    - pair['a'].each_with_index do |a, ix|
-      - opts = { class: choise == ix ? 'selected' : nil }
-      = button_to a, play_player_path(@pl, @step, decision: ix), opts
+  - else
+    p Quiz is not started
 
-  - if d = @pl.play.decision_of(@step)
-    p
-     ' Correct answer is
-     b = pair['a'][d]
-
-  hr
-  = button_to 'Next Question', play_player_path(@pl, @step + 1)
-
-- else
-  p Quiz is not started
-
-  = button_to 'Next Question', play_player_path(@pl, 1)

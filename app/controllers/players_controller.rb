@@ -2,6 +2,7 @@ class PlayersController < ApplicationController
 
   before_action :set_player
   before_filter :normalize_step, only: [:play, :do_play]
+  layout 'application_smart_phone'
 
   def show
     render
