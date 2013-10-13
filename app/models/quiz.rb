@@ -5,4 +5,3 @@ class Quiz < ActiveRecord::Base
     @_data ||= JSON.parse(questions)
   end
 end
-

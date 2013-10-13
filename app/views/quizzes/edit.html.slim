@@ -1,0 +1,17 @@
+
+h2 = @q.title
+
+= form_for(@q) do |f|
+  = f.text_field :title
+  br
+  - @q.data_json.each do |pair|
+    dl
+      dt = text_field_tag "questions[][q]", pair['q']
+      - pair['a'].each do |answer|
+        dd = text_field_tag "questions[][a][]", answer
+  - (5 - @q.data_json.size).times do
+    dl
+      dt = text_field_tag "questions[][q]", ''
+      - 6.times do
+        dd = text_field_tag "questions[][a][]", ''
+  = f.submit 'Update'

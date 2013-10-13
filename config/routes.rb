@@ -4,7 +4,7 @@ QuizRunner::Application.routes.draw do
 
     root to: 'home#show'
 
-    resources :quizzes, only: %w(index show)
+    resources :quizzes
 
     resources :plays, only: %w(index create show) do
       member do
@@ -23,4 +23,3 @@ QuizRunner::Application.routes.draw do
     end
   end
 end
-
