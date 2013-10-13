@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20131007065150) do
 
   create_table "plays", force: true do |t|
     t.string  "memo",                    null: false
-    t.string  "data",                    null: false
+    t.text    "data",                    null: false
     t.string  "decision", default: "[]", null: false
     t.integer "step",     default: 0,    null: false
   end
