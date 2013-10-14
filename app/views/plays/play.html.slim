@@ -23,8 +23,12 @@ h2 Answer
   ' Answer is
   b = pair['a'][ans]
 ul
-  - pair['a'].each_with_index do |a, ix|
-    = button_to a, play_play_path(@p, decision: ix)
+  = form_tag play_play_path(@p)
+    - pair['a'].each_with_index do |a, ix|
+      = radio_button_tag 'decision', ix
+      = label_tag "decision_#{ix}", a, value: ix
+      br
+    = submit_tag 'Submit'
 
 h2 Links
 
