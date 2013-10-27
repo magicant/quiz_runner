@@ -14,7 +14,8 @@
   @content
     = pair['q']
 
-  @content
+
+  /@content
     - if player_answer
       ' You choose
       strong = pair['a'][player_answer]
@@ -24,8 +25,13 @@
   @content
     - pair['a'].each_with_index do |a, ix|
       = form_tag play_player_path(@pl, @step) do
-        button@button = a
+        - if !player_answer.nil? && pair['a'][player_answer]==a
+          button@button#player_answer = a
+        - else
+          button@button = a
         = hidden_field_tag 'decision', ix
+
+
   - if d = @pl.play.decision_of(@step)
     p
      ' Correct answer is
