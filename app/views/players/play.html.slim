@@ -28,7 +28,7 @@
         - if !player_answer.nil? && pair['a'][player_answer]==a
           button@button#player_answer = a
         - else
-          button@button = a
+          button@button#player_answer_list = a
         = hidden_field_tag 'decision', ix
 
 
