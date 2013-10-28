@@ -3,7 +3,8 @@
   - player_answer = @pl.decision_array[@step - 1]
 
   @header
-    h3 = @pl.name
+    /h3 = @pl.name
+    h3 = "Question "+@step.to_s
     - if player_answer || @pl.play.decision_of(@step)
       a.ui-btn-right *{ data: { ajax: 'false', icon: 'arrow-r', iconpos: 'right', theme: 'b' }, href:play_player_path(@pl, @step + 1) }
         | Next
@@ -12,7 +13,8 @@
         | Refresh
 
   @content
-    = pair['q']
+    img src= root_url+"client_plant_top.png"
+    #question = pair['q']
 
 
   /@content
@@ -25,14 +27,15 @@
   @content
     - pair['a'].each_with_index do |a, ix|
       = form_tag play_player_path(@pl, @step) do
-        - if !player_answer.nil? && pair['a'][player_answer]==a
+        - if player_answer && pair['a'][player_answer]==a
           button@button#player_answer = a
         - else
           button@button#player_answer_list = a
         = hidden_field_tag 'decision', ix
 
+  img src= root_url+"client_plant_under.png"
 
-  - if d = @pl.play.decision_of(@step)
+  /- if d = @pl.play.decision_of(@step)
     p
      ' Correct answer is
      b = pair['a'][d]

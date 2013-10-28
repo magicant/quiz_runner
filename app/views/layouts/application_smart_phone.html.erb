@@ -12,15 +12,22 @@
   <style type="text/css">
 
   /*header*/
-  .ui-mobile .ui-header{
+  .ui-header{
     color:rgb(255,255,255); /*text color*/
 
-    background: -moz-linear-gradient(top, rgb(0,215,3), rgba(0,215,3,0.5));
-    background: -webkit-gradient(linear, left top, left bottom, from(rgb(0,215,3)), to(rgba(0,215,3,0.5)));
+    background: -moz-linear-gradient(top, rgb(0,215,3), rgb(234,255,191));
+    background: -webkit-gradient(linear, left top, left bottom, from(rgb(0,215,3)), to(rgb(234,255,191)));
+  }
+
+  .ui-header .ui-title{
+    font-size: 20pt;
+    margin: .2em 30% .2em;
+
   }
 
   .ui-mobile .ui-btn-left, .ui-mobile .ui-btn-right, .ui-btn-left>.ui-btn, .ui-btn-right>.ui-btn{
     background: rgb(178,116,89);
+
   }
 
   /*body*/
@@ -41,23 +48,30 @@
     }
 
   /*question*/
+  #question {
+    text-align: center;
+    padding: 0pt 10pt ;
+    font-size: 14pt;
+  }
+
   .ui-content {
     text-align: center;
-    padding: 5pt 1pt;
+    padding: 0pt 0pt;
   }
 
   .ui-btn-up-c{
-    margin-left: 5pt;
-    margin-right: 20pt;
+    margin-left: 10pt;
+    margin-right: 25pt;
   }
   .ui-btn-hover-c{
-    margin-left: 5pt;
-    margin-right: 20pt;
+    margin-left: 10pt;
+    margin-right: 25pt;
   }
 
   /*button*/
   .ui-content .ui-btn-inner .ui-btn-text{
     color:rgb(90,61,27); /*text color*/
+    font-weight: 400;
   }
 
   #player_answer{
@@ -67,8 +81,8 @@
 
     opacity: 1; /*べた塗り*/
     /*button color*/
-    background: -moz-linear-gradient(top, rgb(177,196,255), rgba(177,196,255,0.5));
-    background: -webkit-gradient(linear, left top, left bottom, from(rgb(177,196,255)), to(rgba(177,196,255,0.5)));　/* Safari,Google Chrome用 */
+    background: -moz-linear-gradient(top, rgb(117,196,255), rgb(0,156,182));
+    background: -webkit-gradient(linear, left top, left bottom, from(rgb(117,196,255)), to(rgb(0,156,182)));　/* Safari,Google Chrome用 */
 
     border-radius: 10pt; /* 丸め */
     -webkit-border-radius: 10pt; /* Safari,Google Chrome用 */  
@@ -80,8 +94,8 @@
 
     opacity: 1; /*べた塗り*/
     /*button color*/
-    background: -moz-linear-gradient(top, rgb(0,215,3), rgba(0,215,3,0.5));
-    background: -webkit-gradient(linear, left top, left bottom, from(rgb(0,215,3)), to(rgba(0,215,3,0.5)));　/* Safari,Google Chrome用 */
+    background: -moz-linear-gradient(top, rgb(0,215,3), rgb(234,255,191));
+    background: -webkit-gradient(linear, left top, left bottom, from(rgb(0,215,3)), to(rgb(234,255,191)));　/* Safari,Google Chrome用 */
 
     border-radius: 10pt; /* 丸め */
     -webkit-border-radius: 10pt; /* Safari,Google Chrome用 */  
