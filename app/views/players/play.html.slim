@@ -13,7 +13,7 @@
         | Refresh
 
   @content
-    img src= root_url+"client_plant_top.png"
+    img#upper-image src= root_url+"client_plant_top.png"
     #question = pair['q']
 
 
@@ -33,7 +33,7 @@
           button@button#player_answer_list = a
         = hidden_field_tag 'decision', ix
 
-  img src= root_url+"client_plant_under.png"
+    img#rower-image src= root_url+"client_plant_under.png"
 
   /- if d = @pl.play.decision_of(@step)
     p

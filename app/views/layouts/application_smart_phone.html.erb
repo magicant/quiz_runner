@@ -14,14 +14,21 @@
   /*header*/
   .ui-header{
     color:rgb(255,255,255); /*text color*/
+    height: 30pt;
+    border: none;
 
     background: -moz-linear-gradient(top, rgb(0,215,3), rgb(234,255,191));
     background: -webkit-gradient(linear, left top, left bottom, from(rgb(0,215,3)), to(rgb(234,255,191)));
   }
 
+  .ui-header .ui-bar-a{
+    padding: 0;
+  }
+
   .ui-header .ui-title{
     font-size: 20pt;
-    margin: .2em 30% .2em;
+    margin: 0pt auto;
+    padding: 2pt 0pt;
 
   }
 
@@ -55,7 +62,6 @@
   }
 
   .ui-content {
-    text-align: center;
     padding: 0pt 0pt;
   }
 
@@ -102,8 +108,14 @@
     -moz-border-radius: 10pt; /*firefox*/
   } 
 
-  img{
-    width: 100%;
+  #upper-image{
+    width: 90%;
+    text-align: left;
+  }
+
+  #rower-image{
+    width: 90%;
+    text-align: right;
   }
 
   </style>
