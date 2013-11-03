@@ -52,7 +52,7 @@ class Play < ActiveRecord::Base
   end
 
   def results_data_table
-    players.map {|pl| [pl.name, pl.total_score(pl)] }
+    players.map {|pl| [pl.name, pl.total_score(self)] }
   end
 end
 
