@@ -70,6 +70,11 @@ class PlaysController < ApplicationController
     render layout: 'chart'
   end
 
+  def qrcode
+    @p = Play.find(params[:id])
+    render
+  end
+
   private
 
   # :: Int

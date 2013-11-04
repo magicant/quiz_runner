@@ -12,6 +12,8 @@ ul
   button Add Player
   = text_field_tag :name, '', required: true, placeholder: 'Player A'
 
+= link_to 'Generate QR code for each player', qrcode_play_path(@p)
+
 h3 Play
 
 - if @p.started?

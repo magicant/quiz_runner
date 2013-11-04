@@ -1,0 +1,9 @@
+h2 QR codes
+
+ul
+  - @p.players.sort_by(&:id).each do |player|
+    - url = player_url(player)
+    li = link_to player.name, player_path(player), target: '_blank'
+    li = url
+    img src= "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=#{url}"
+

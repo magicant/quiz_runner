@@ -13,6 +13,7 @@ QuizRunner::Application.routes.draw do
         get  :result_chart
         get  "/play(/:step)", action: 'play', as: :play, step: num_ptn
         post "/play(/:step)", action: 'do_play', step: num_ptn
+        get  :qrcode
       end
     end
 
