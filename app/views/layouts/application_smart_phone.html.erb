@@ -29,12 +29,10 @@
     font-size: 20pt;
     margin: 0pt auto;
     padding: 2pt 0pt;
-
   }
 
   .ui-mobile .ui-btn-left, .ui-mobile .ui-btn-right, .ui-btn-left>.ui-btn, .ui-btn-right>.ui-btn{
     background: rgb(178,116,89);
-
   }
 
   /*body*/
@@ -52,7 +50,12 @@
 
     height: 40pt;
     font-size: 12pt;
-    }
+  }
+
+  .ui-btn.ui-shadow.ui-btn-corner-all.ui-btn-up-c {
+    border-color: transparent;
+  }
+
 
   /*question*/
   #question {
@@ -66,12 +69,12 @@
   }
 
   .ui-btn-up-c{
-    margin-left: 10pt;
-    margin-right: 25pt;
+    margin-left: 5pt;
+    margin-right: 5pt;
   }
   .ui-btn-hover-c{
-    margin-left: 10pt;
-    margin-right: 25pt;
+    margin-left: 5pt;
+    margin-right: 5pt;
   }
 
   #player_answer{
@@ -136,30 +139,6 @@
   <!-- jQuery and jQuery Mobile -->
   <script src="https://d10ajoocuyu32n.cloudfront.net/jquery-1.9.1.min.js"></script>
   <script src="https://d10ajoocuyu32n.cloudfront.net/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
-
-  <script>
-  $(document).ready(function(){
-    // hide #back-top first
-    $("#up-image").show();
-    $("#up-image").hide();
-    
-    // fade in #back-top
-    $(function () {
-      $(window).scroll(function () {
-        if ($(this).scrollTop() > 100) {
-          $('#down-image').fadeOut();
-          $('#up-image').fadeIn();
-        } else {
-          $('#down-image').fadeIn();
-          $('#up-image').fadeOut();
-        }
-      });
-    });
-  });
-  </script>
-
-
-
   <title>Smart phone quiz</title>
   <%= csrf_meta_tags %>
   <%= yield :head %>

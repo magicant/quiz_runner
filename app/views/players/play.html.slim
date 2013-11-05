@@ -33,9 +33,6 @@
           button@button#player_answer_list = a
         = hidden_field_tag 'decision', ix
 
-    - if @step < 5
-      img#down-image src= root_url+"client_down.png"
-      img#up-image src= root_url+"client_up.png"
     img#rower-image src= root_url+"client_plant_under.png"
 
   /- if d = @pl.play.decision_of(@step)
