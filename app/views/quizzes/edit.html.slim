@@ -1,0 +1,27 @@
+- content_for :head do
+  scss:
+    input[type=text] { width: 300px; }
+
+h2 = @q.title
+div#dataset(style='display: none' data-qs=@q.questions)
+
+= form_tag quiz_path(@q), method: 'put' do
+  /! ko foreach: dataset
+  dl
+    dt
+      input(type="text" name="questions[][q]" data-bind="value: q")
+      button(data-bind='click: function(){ $parent.delete($data) }') Delete
+    /! ko foreach: as
+    dd
+      input(type="text" name="questions[][a][]" data-bind="value: $data")
+      button(data-bind='click: function(){ $parent.delete($data) }') del
+    /! /ko
+    dd: button(data-bind='click: addAnswer') Add Answer
+  /! /ko
+  button(data-bind="click: addQuestion") Add Question
+  hr
+  = submit_tag 'Update'
+
+= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js'
+= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/knockout/2.3.0/knockout-min.js'
+= javascript_include_tag :question_maker, defer: true

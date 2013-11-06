@@ -8,6 +8,7 @@ class QuizzesController < ApplicationController
   end
 
   def edit
+    @q = Quiz.find(params[:id])
   end
 
   def new
@@ -15,5 +16,11 @@ class QuizzesController < ApplicationController
 
   def create
   end
-end
 
+  def update
+    @q = Quiz.find(params[:id])
+    @q.questions = params['questions'].select { |h| h['q'].present? }.to_json
+    @q.save!
+    redirect_to @q
+  end
+end

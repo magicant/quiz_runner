@@ -4,14 +4,16 @@ QuizRunner::Application.routes.draw do
 
     root to: 'home#show'
 
-    resources :quizzes, only: %w(index show)
+    resources :quizzes
 
     resources :plays, only: %w(index create show) do
       member do
         post :players, action: 'create_player'
         get  :result
+        get  :result_chart
         get  "/play(/:step)", action: 'play', as: :play, step: num_ptn
         post "/play(/:step)", action: 'do_play', step: num_ptn
+        get  :qrcode
       end
     end
 
@@ -23,4 +25,3 @@ QuizRunner::Application.routes.draw do
     end
   end
 end
-

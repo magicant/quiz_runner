@@ -23,8 +23,12 @@ h2 Answer
   ' Answer is
   b = pair['a'][ans]
 ul
-  - pair['a'].each_with_index do |a, ix|
-    = button_to a, play_play_path(@p, decision: ix)
+  = form_tag play_play_path(@p)
+    - pair['a'].each_with_index do |a, ix|
+      = radio_button_tag 'decision', ix
+      = label_tag "decision_#{ix}", a, value: ix
+      br
+    = submit_tag 'Submit'
 
 h2 Links
 
@@ -34,6 +38,7 @@ h2 Links
 - if @p.decision_of(@step)
   - if @p.last? @step
     = link_to 'Result', result_play_path(@p)
+    =< link_to 'Result Chart', result_chart_play_path(@p)
   - elsif @p.step > @step
     = link_to 'Next', play_play_path(@p, @step + 1)
   - else
